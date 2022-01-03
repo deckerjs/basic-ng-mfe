@@ -2,6 +2,47 @@
 
 # BasicNgMfe
 
+
+
+# nx ng
+https://nx.dev/l/a/guides/setup-mfe-with-angular
+
+npx create-nx-workspace BasicNgMfe
+cd basic-ng-mfe/
+npm install --save-dev @nrwl/angular
+
+npx nx g @nrwl/angular:app appshell --mfe --mfeType=host --routing=true --unitTestRunner none --e2eTestRunner none
+
+npx nx g @nrwl/angular:app mfe-app1 --mfe --mfeType=remote --port=4201 --host=appshell --routing=true --unitTestRunner none --e2eTestRunner none
+
+npx nx g @nrwl/angular:app mfe-app2 --mfe --mfeType=remote --port=4202 --host=appshell --routing=true --unitTestRunner none --e2eTestRunner none
+
+npx nx g @nrwl/angular:app mfe-app3 --mfe --mfeType=remote --port=4203 --host=appshell --routing=true --unitTestRunner none --e2eTestRunner none
+
+nx g @nrwl/angular:lib shared/services
+nx g @nrwl/angular:service NavToolbar --project=shared-services
+nx g @nrwl/angular:service Messaging --project=shared-services
+nx generate @nrwl/angular:component components/MainLayout --project=appshell
+
+ng add @ng-bootstrap/ng-bootstrap
+
+# start all together
+nx run appshell:serve-mfe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was generated using [Nx](https://nx.dev).
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>

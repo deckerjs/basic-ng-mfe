@@ -1,4 +1,10 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "appshell": "apps/appshell",
+    "mfe-app1": "apps/mfe-app1",
+    "mfe-app2": "apps/mfe-app2",
+    "mfe-app3": "apps/mfe-app3",
+    "shared-services": "libs/shared/services"
+  }
 }

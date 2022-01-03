@@ -1,0 +1,43 @@
+<basic-ng-mfe-main-layout [topRowHeight]="topRowHeight">
+  <div class="top-section">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+      <div class="navbar-brand mx-2 text-light">MFE Shell Top</div>
+
+      <ul ngbNav class="nav-pills mx-4">
+        <li ngbNavItem class="mx-2">
+          <a ngbNavLink routerLink="/">Home</a>
+        </li>
+        <li ngbNavItem *ngFor="let mfe of microfrontends" class="mx-1">
+          <a ngbNavLink [routerLink]="mfe.routePath">{{
+            mfe.displayName
+          }}</a>
+        </li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <div class="side-section">
+    <h6>Shell Side </h6>
+    <h6>Shared service items</h6>
+    <ul ngbNav orientation="vertical" class="nav-pills">
+      <li class="list-group-item my-1" *ngFor="let itm of this.sharedItems">{{itm}}</li>
+    </ul>
+  </div>
+
+  <div class="main-section">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="bottom-section">
+    <h6>Shell Bottom</h6>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item mx-2">Bottom Stuff</li>
+      <li class="list-group-item mx-2">Bottom Stuff</li>
+      <li class="list-group-item mx-2">Bottom Stuff</li>
+    </ul>
+  </div>
+</basic-ng-mfe-main-layout>

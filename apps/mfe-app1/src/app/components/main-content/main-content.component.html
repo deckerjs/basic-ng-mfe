@@ -1,0 +1,27 @@
+<p>Test for shared singleton service</p>
+
+<div class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputItem" class="sr-only">Add to shared items</label>
+    <input
+      #textItem
+      class="form-control"
+      id="inputItem"
+      placeholder="add shared item"
+    />
+  </div>
+
+  <button
+    class="btn btn-primary mb-2 mx-1"
+    (click)="this.addSharedItem(textItem.value)"
+  >
+    Add Item
+  </button>
+
+  <button
+    class="btn btn-secondary mb-2 mx-1"
+    (click)="this.clearSharedItems()"
+  >
+    Clear
+  </button>
+</div>

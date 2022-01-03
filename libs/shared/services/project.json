@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/services",
+  "sourceRoot": "libs/shared/services/src",
+  "prefix": "basic-ng-mfe",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/services/src/**/*.ts",
+          "libs/shared/services/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
