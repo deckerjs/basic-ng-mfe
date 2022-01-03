@@ -2,11 +2,22 @@
 
 # BasicNgMfe
 
+# start all together
+- (first)
+npm install
+- then
+nx run appshell:serve-mfe
 
+
+http://localhost:4200
+http://localhost:4201
+http://localhost:4202
+http://localhost:4203
 
 # nx ng
 https://nx.dev/l/a/guides/setup-mfe-with-angular
 
+```
 npx create-nx-workspace BasicNgMfe
 cd basic-ng-mfe/
 npm install --save-dev @nrwl/angular
@@ -25,9 +36,8 @@ nx g @nrwl/angular:service Messaging --project=shared-services
 nx generate @nrwl/angular:component components/MainLayout --project=appshell
 
 ng add @ng-bootstrap/ng-bootstrap
+```
 
-# start all together
-nx run appshell:serve-mfe
 
 
 
@@ -100,17 +110,6 @@ Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new
 
 Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
 ## Understand your workspace
 
