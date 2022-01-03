@@ -3,16 +3,16 @@
 # BasicNgMfe
 
 # start all together
-- (first)
-npm install
-- then
-nx run appshell:serve-mfe
+## (first)
+```npm install```
+## then
+```nx run appshell:serve-mfe```
 
 
-http://localhost:4200
-http://localhost:4201
-http://localhost:4202
-http://localhost:4203
+- http://localhost:4200
+- http://localhost:4201
+- http://localhost:4202
+- http://localhost:4203
 
 # nx ng
 https://nx.dev/l/a/guides/setup-mfe-with-angular
