@@ -2,10 +2,16 @@
 
 # BasicNgMfe
 
-# start all together
 ## (first)
-```npm install```
-## then
+### install latest node (current is 17)
+```
+npm install -g nx
+```
+```
+npm install
+```
+
+## then to start them all together
 ```nx run appshell:serve-mfe```
 
 
@@ -14,7 +20,24 @@
 - http://localhost:4202
 - http://localhost:4203
 
-# nx ng
+### mfe = micro front end
+
+##why is any of this interesting
+- there are 4 different independent apps and one shared library
+  - the appshell is the "host" app, and it has no references to the other 3 mfe apps, instead the 3 apps are lazy loaded from a service at runtime from a json configuration.  The LookupService simulates a call to an api or whatever else you might use to get your configured mfes.
+  - the 3 mfe apps can run on their own. They have their own app module and component, but the module used when it's being used as a remote is in the remote-entry directory. The RemoteEntryModule sets up the apps initial page and routes.  (The mfes app module just refers to the remote one to starts up the same thing)  
+  - the same shared library is referenced by all the apps, and at runtime when a mfe app is dynamically loaded, it gets its services from the host instead of using it's own copy. So a singleton service can still be a singleton service even across different apps that are running in the same host.
+- most of what these apps are composed of are just normal angular with a few differences from what would be normal. Except for:
+  - the ModuleFederation magic that is in each modules webpack.config
+    - each module can be set as a host, remote, or both can actually be used if needed
+    - the configured shared modules are resolved by webpack at runtime and provided by whatever module has them, so there is only 1 copy of each loaded into the clients browser
+    - dependency versions are checked, so if you run 2 different modules with different angular core versions, then the client will end up with multiple versions of angular core.
+    - sharedMappings.register is where the shared services are configured
+- nx was used to create these apps together in the same workspace, so they use the same node_modules directory, but they are entirely seperate apps that can run on their own.
+- nx has mfe plugins for angular that adds the correct configuration when you use it to add an app or library to an existing workspace.
+
+
+# some nx ng info and commands
 https://nx.dev/l/a/guides/setup-mfe-with-angular
 
 ```
@@ -37,8 +60,6 @@ nx generate @nrwl/angular:component components/MainLayout --project=appshell
 
 ng add @ng-bootstrap/ng-bootstrap
 ```
-
-
 
 
 
